@@ -112,3 +112,14 @@ function portifolioItemDetails(portfolioItem){
     document.querySelector(".pp-body").innerHTML = 
     portfolioItem.querySelector(".portifolio-item-details").innerHTML;
 }
+
+
+function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+
+      // Limpa o hash da URL após o scroll
+      history.replaceState(null, null, ' ');
+    }
+  }
