@@ -114,12 +114,14 @@ function portifolioItemDetails(portfolioItem){
 }
 
 
-function scrollToSection(id) {
+function scrollToSection(event, id) {
+    event.preventDefault(); // Impede o # na URL
+
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
 
-      // Limpa o hash da URL após o scroll
-      history.replaceState(null, null, ' ');
+      // Remove o hash da URL, se ele chegou a ser adicionado
+      history.replaceState(null, null, window.location.pathname);
     }
   }
