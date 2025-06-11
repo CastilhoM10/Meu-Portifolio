@@ -6,7 +6,9 @@ Fonts
 /*--------------------------
 Variaveis
 ----------------------------*/
-
+html {
+  scroll-behavior: smooth;
+}
 :root{
     --main-color: #ff1d44;
     --blue: #3700fe;
