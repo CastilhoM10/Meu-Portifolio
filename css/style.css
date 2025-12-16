@@ -929,7 +929,111 @@ Portifolio Popup
     color: var(--text-block-300);
 }
 
+/* GRID/WRAP da lista (3/2/1 colunas) */
+.pesquisa-section .row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;              /* espaço entre cards */
+  justify-content: center;
+}
 
+.pesquisa-section .pesquisa-item{
+  padding: 0;             /* o gap já cuida do espaçamento */
+  flex: 1 1 320px;        /* mínimo ~320px, e vai quebrando sozinho */
+  max-width: 360px;       /* controla "tamanho máximo" do card */
+  display: flex;
+  justify-content: center;
+}
+
+
+.pesquisa-intro {
+    max-width: 720px;
+    margin: 0 auto 50px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Card responsivo */
+.pesquisa-card{
+  width: 100%;            /* ocupa o tamanho do .pesquisa-item */
+  max-width: 340px;       /* limite visual do card */
+  height: auto;           /* não trava altura */
+  min-height: 250px;      /* mantém proporção parecida com a sua */
+  border-radius: 15px;
+  background: rgba(22, 18, 18, 0.651);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.pesquisa-card::before {
+  content: "";
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  border-radius: 20%;
+  border: 35px solid rgba(255, 255, 255, 0.102);
+  transition: all .8s ease;
+  filter: blur(.5rem);
+}
+
+.pesquisa-text {
+  flex-grow: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  color: var(--blue-dark);
+  font-weight: 900;
+  font-size: 1.2em;
+}
+
+.pesquisa-subtitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(173, 17, 17, 0.691);
+}
+.pesquisa-resumo{
+    font-size: 10px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+.pesquisa-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  border-radius: 0 0 18px 18px;
+  overflow: hidden;
+}
+
+.pesquisa-btn {
+  border: none;
+  height: 44px;
+  background-color: rgba(29, 24, 24, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pesquisa-btn i {
+  width: 25px;
+  height: 25px;
+  color: rgb(126, 38, 38);
+}
+
+.pesquisa-btn:hover {
+  background-color: rgb(255, 246, 246);
+}
+
+.pesquisa-card:hover::before {
+  width: 140px;
+  height: 140px;
+  top: -20%;
+  left: 50%;
+  filter: blur(0rem);
+}
 
 /*Responsividade*/
     @media (max-width:991px){
@@ -954,6 +1058,7 @@ Portifolio Popup
         .portifolio-item{
             width: calc(50% - 30px);
         }
+        .pesquisa-section .pesquisa-item{ flex-basis: 45%; } /* ~2 por linha */
     }
     @media (max-width:767px){
         .contact-form, .contact-info, .about-img, .about-text{
@@ -996,5 +1101,13 @@ Portifolio Popup
         .service-section .service-item {
             flex: 0 0 100%;
             max-width: 100%;
+        }
+        .pesquisa-section .pesquisa-item{
+            flex-basis: 100%;     /* 1 por linha */
+            max-width: 100%;
+        }
+        .pesquisa-card{
+            max-width: 100%;
+            min-height: 230px;    /* ajusta no mobile */
         }
     }
