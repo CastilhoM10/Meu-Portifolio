@@ -523,7 +523,7 @@ h3,h4,h5,h6{
     font-weight: 500;
 }
 .home-img .img-box{
-    max-width: 360px;
+    max-width: 260px;
     background-color: var(--white-alpha-25);
     border-radius: 50%;
     border: 8px solid var(--white-alpha-25);
